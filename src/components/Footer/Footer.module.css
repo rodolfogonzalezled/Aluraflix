@@ -1,0 +1,17 @@
+.Footer {
+    background-color: var(--negro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.Footer h4 {
+    color: var(--blanco);
+    font-size: 20px;
+}
+
+h2 img {
+    width: 50px;
+}

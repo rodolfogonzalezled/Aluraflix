@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+}
+
+.name {
+    color: white;
+    width: 16rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: larger;
+    text-align: center;
+}

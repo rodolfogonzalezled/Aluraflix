@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1em 10em;
+    box-shadow: 0px 5px 10px rgba(107, 209, 255, 0.9);
+    background-color: var(--negro);
+}
+
+a{ text-decoration: none;}
+
+.logoContainer{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.Header img {
+    align-self: start;
+}
+
+.Header span {
+    align-self: end;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    margin-left: 8px;
+    font-size: 1.5rem;
+}
+
+.button {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
