@@ -3,7 +3,7 @@ import Title from "components/Title";
 import CategorySection from "components/CategorySection";
 import styles from "./Home.module.css";
 import { useState, useEffect } from "react";
-import { getCategories, getVideos, deleteVideo, addVideo, updateVideo } from "services/api.service";
+import { getCategories, getVideos, deleteVideo, updateVideo } from "services/api.service";
 import AlertDialog from "components/Alerts";
 
 function Home() {
@@ -79,7 +79,7 @@ function Home() {
             <Banner img="home" />
             <Title>
             </Title>
-            <section className={styles.container}>
+            <section>
                 {categorizedVideos.map((category) => {
                     if (category) {
                         return <CategorySection

@@ -15,4 +15,4 @@ function PageBase(){
     )
 }
 
-export default PageBase
+export default PageBase;
