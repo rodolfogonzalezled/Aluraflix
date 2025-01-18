@@ -9,8 +9,11 @@ import { styled } from '@mui/material/styles';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import hexToRgba from 'hex-to-rgba';
+import Form from "components/Form";
+import AlertDialog from "components/Alerts";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-function Card({ color, id, image, title, video, onDelete }) {
+function Card({ color, video, onDelete, onUpdate }) {
     const BootstrapDialog = styled(Dialog)(({ theme }) => ({
         '& .MuiDialogContent-root': {
             padding: theme.spacing(2),
@@ -21,16 +24,35 @@ function Card({ color, id, image, title, video, onDelete }) {
     }));
 
     const [open, setOpen] = useState(false);
-    const handleClickOpen = () => {
+    const [showVideo, setShowVideo] = useState(false);
+    const [showUpdateVideo, setUpdateVideo] = useState(false);
+    const [openAlert, setOpenAlert] = useState(false);
+
+    const handleShowVideo = () => {
         setOpen(true);
+        setShowVideo(true);
     };
 
     const handleClose = () => {
         setOpen(false);
+        setShowVideo(false);
+        setUpdateVideo(false);
     };
 
     const handleDelete = () => {
-        onDelete(id);
+        setOpenAlert(true);
+    };
+
+    const handleUpdateVideo = () => {
+        setOpen(true);
+        setUpdateVideo(true);
+    };
+
+    const handleAlertResponse = (response) => {
+        setOpenAlert(false);
+        if (response === 'accept') {
+            onDelete(video.id);
+        }
     };
 
     const obj = {
@@ -39,25 +61,53 @@ function Card({ color, id, image, title, video, onDelete }) {
 
     return (
         <>
+            {openAlert ? (
+                <AlertDialog
+                    open={openAlert}
+                    onClose={(response) => handleAlertResponse(response)}
+                    message={'Esta seguro que desea borrar el video seleccionado?'}
+                    buttonAcept={'Borrar'}
+                />
+            ) : null}
 
             <div className={styles.container} style={obj}>
-                <img src={image} alt={title} className={styles.capa} onClick={handleClickOpen} />
+                <img src={video.image} alt={video.title} className={styles.capa} onClick={handleShowVideo} />
+                <div className={styles.iconOverlay}>
+                    <IconButton>
+                        <PlayArrowIcon sx={{ fontSize: 64, color: 'white' }} />
+                    </IconButton>
+                </div>
+                <div className={styles.icons}>
+                    <h3>{video.title}</h3>
+                </div>
                 <div className={styles.icons}>
                     <div className={styles.icon} onClick={handleDelete}>
                         <DeleteIcon />Borrar
                     </div>
-                    <div className={styles.icon} onClick={handleDelete}>
+                    <div className={styles.icon} onClick={handleUpdateVideo}>
                         <EditIcon />Editar
                     </div>
                 </div>
             </div>
-            <BootstrapDialog
+
+            <Dialog
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
+                fullWidth
+                maxWidth={showVideo ? 'lg' : 'sm'}
+                PaperProps={{
+                    style: {
+                        minHeight: showVideo ? '90%' : 'auto',
+                        backgroundColor: '#191919',
+                        borderColor: 'white',
+                        border: 'solid',
+                        borderWidth: '5px'
+                    }
+                }}
             >
-                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                    Modal title
+                <DialogTitle sx={{ m: 0, p: 2, color: 'white' }} id="customized-dialog-title">
+                    {showUpdateVideo ? 'EDITAR CARD' : video.title}
                 </DialogTitle>
                 <IconButton
                     aria-label="close"
@@ -72,9 +122,13 @@ function Card({ color, id, image, title, video, onDelete }) {
                     <CloseIcon />
                 </IconButton>
                 <DialogContent dividers>
-                    <iframe width="100%" height="100%" src={video}></iframe>
+                    {showVideo ? (
+                        <iframe src={video.video}></iframe>
+                    ) : showUpdateVideo ? (
+                        <Form data={video} onUpdate={onUpdate} onClose={handleClose}></Form>
+                    ) : null}
                 </DialogContent>
-            </BootstrapDialog>
+            </Dialog>
         </>
     );
 }

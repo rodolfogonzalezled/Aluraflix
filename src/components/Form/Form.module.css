@@ -1,0 +1,43 @@
+.btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.horizontalRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+
+.form {
+    margin: 0 2rem;
+    width: 100%;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .horizontalRow {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+/* Para Celulares */
+@media (max-width: 767px) {
+    .horizontalRow {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+}

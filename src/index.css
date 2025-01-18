@@ -1,14 +1,36 @@
-:root{
-  --font:"Montserrat", sans-serif;
-  --blanco:#fff;
-  --negro:#262626;
-  --gris:#e2e2e2;
+:root {
+    --font: "Montserrat", sans-serif;
+    --blanco: #fff;
+    --negro: #000000;
+    --gris: #e2e2e2;
+    --azul: #2271d1d9;
 }
 
-
 body {
-  margin: 0;
-  font-family: var(--font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #041014e0;
+}
+
+::-webkit-scrollbar-track:vertical {
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2271d1;
+    border-radius: 1.5rem;
 }

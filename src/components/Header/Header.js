@@ -1,22 +1,28 @@
-import { Link } from "react-router-dom"
-import styles from "./Header.module.css"
-import logo from "./logo-alura.png"
-import HeaderLink from "../HeaderLink/HeaderLink"
+import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
+import HeaderLink from "../HeaderLink/HeaderLink";
+import { Button } from "@mui/material";
+import { useLocation } from 'react-router-dom';
 
-function Header(){
-    return(
+function Header() {
+    const location = useLocation();
+    return (
         <header className={styles.header}>
             <Link to="/">
                 <section className={styles.logoContainer}>
-                    <img src={logo} alt="Logo Alura"/>
+                    <img src="img/logo-aluraflix.png" alt="Logo Alura" />
                 </section>
             </Link>
-            <nav>  
+            <nav>
                 <HeaderLink url="./">
-                    Home
+                    <Button variant={location.pathname === '/' ? 'contained' : 'outlined'}>
+                        Home
+                    </Button>
                 </HeaderLink>
-                <HeaderLink url="./NuevoVideo">
-                   Nuevo Video
+                <HeaderLink url="./new-video">
+                    <Button variant={location.pathname === '/new-video' ? 'contained' : 'outlined'}>
+                        Nuevo Video
+                    </Button>
                 </HeaderLink>
             </nav>
         </header>

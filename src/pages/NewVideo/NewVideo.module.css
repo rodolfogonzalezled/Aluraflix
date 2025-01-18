@@ -1,0 +1,32 @@
+.newVideo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.titleVideo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formVideo {
+    margin: 0 2rem 1rem 2rem;
+    width: 95%;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+    .newVideo {
+        width: 100%;
+    }
+
+    .formVideo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 2.4rem;
+        width: 100%;
+    }
+}

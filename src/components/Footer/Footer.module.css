@@ -1,17 +1,29 @@
-.Footer {
+.footer {
     background-color: var(--negro);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding-top: 1rem;
+    box-shadow: 2px 0 10px rgb(34 113 209);
+    border: solid;
+    border-color: #2271d1d9;
+    border-width: 0.18rem 0 0;
+    position: relative;
 }
 
-.Footer h4 {
+.footer h4 {
     color: var(--blanco);
-    font-size: 20px;
 }
 
-h2 img {
-    width: 50px;
+.footer img {
+    height: 40px;
+    width: 168.45px;
+}
+
+@media (max-width: 767px) {
+    .footer img {
+        height: 20px;
+        width: 168.45px;
+    }
 }

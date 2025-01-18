@@ -15,3 +15,11 @@ export const getCategories = async () => {
 export const deleteVideo = async (id) => {
     await axios.delete(`${BASE_URL}/videos/${id}`);
 };
+
+export const updateVideo = async (id, data) => {
+    await axios.put(`${BASE_URL}/videos/${id}`, data);
+};
+
+export const addVideo = async (data) => {
+    await axios.post(`${BASE_URL}/videos`, data);
+};

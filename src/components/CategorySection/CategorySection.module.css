@@ -1,17 +1,24 @@
 .container {
     display: flex;
-    gap: 2rem;
-    justify-content: space-around;
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-snap-type: x mandatory;
+    gap: 1.6rem;
+    justify-content: space-evenly;
+    margin: 0 2rem;
+    flex-wrap: wrap;
 }
 
 .name {
     color: white;
     width: 16rem;
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.6rem;
     font-size: larger;
     text-align: center;
+    margin: 1rem 2rem;
+}
+
+/* Para Tablets */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .name {
+        justify-self: center;
+    }
 }
