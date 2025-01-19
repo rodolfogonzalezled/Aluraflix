@@ -1,7 +1,7 @@
-import Header from "components/Header/Header";
 import Container from "components/Container";
 import { Outlet } from "react-router-dom";
 import Footer from "components/Footer";
+import Header from "components/Header";
 
 function PageBase(){
     return(

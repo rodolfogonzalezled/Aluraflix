@@ -2,7 +2,6 @@
     display: flex;
     gap: 1.6rem;
     justify-content: space-evenly;
-    margin: 0 2rem;
     flex-wrap: wrap;
 }
 

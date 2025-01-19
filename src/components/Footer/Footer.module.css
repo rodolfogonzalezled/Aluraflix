@@ -23,7 +23,10 @@
 
 @media (max-width: 767px) {
     .footer img {
-        height: 20px;
-        width: 168.45px;
+        width: 128.45px;
+    }
+    .footer h4 {
+        color: var(--blanco);
+        font-size: x-small;
     }
 }

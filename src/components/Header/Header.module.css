@@ -30,3 +30,29 @@ nav {
     display: flex;
     gap: 1rem;
 }
+
+.buttonAdd {
+    display: block;
+}
+
+.buttonAddSmall {
+    display: none;
+}
+
+/* Para Celulares */
+@media (max-width: 767px) {
+    .buttonAdd {
+        display: none;
+    }
+
+    .buttonAddSmall {
+        display: block;
+    }
+
+    .logoContainer {
+        height: 30px;
+        width: 128.45px;
+        display: flex;
+        align-items: center;
+    }
+}
